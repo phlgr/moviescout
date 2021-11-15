@@ -6,4 +6,4 @@ export default {
 };
 
 export const Imdb = (): JSX.Element =>
-  Actionlink({ url: 'Imdb.com', text: 'Visit Imdb' });
+  Actionlink({ url: 'Imdb.com', text: 'SEE ON IMDB' });
