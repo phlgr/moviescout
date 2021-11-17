@@ -3,18 +3,21 @@ import type { ReactNode } from 'react';
 import styled from 'styled-components';
 
 type TagProps = {
+  id: number;
   children: ReactNode;
   active?: boolean;
   count?: string;
+  onClick: () => void;
 };
 
 export default function Tag({
   children,
   active = false,
   count,
+  onClick,
 }: TagProps): JSX.Element {
   return (
-    <TagStyleActive active={active}>
+    <TagStyleActive active={active} onClick={onClick}>
       {children} {count && `(${count})`}
     </TagStyleActive>
   );
