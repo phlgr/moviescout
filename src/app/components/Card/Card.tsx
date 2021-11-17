@@ -5,41 +5,51 @@ import Typography from '../Typography/Typography';
 
 type Card = {
   title: string;
-  display: 'regular' | 'compact' | 'compactWide';
+  genres: string[];
+  description: string;
+  rating: number;
+  imageUrl: string;
 };
 
 type CardProps = {
   content: Card;
+  display: 'regular' | 'compact' | 'compactWide';
 };
 
-export default function Card({ content }: CardProps): JSX.Element {
-  const { title, display } = content;
+export default function Card({ content, display }: CardProps): JSX.Element {
+  const { title, genres, description, rating, imageUrl } = content;
 
   return (
     <CardContainer display={display}>
       <ImageContainer>
-        <Image></Image>
-        <ButtonBookmark />
+        <Image src={imageUrl} />
+        <BookmarkButton>
+          <ButtonBookmark />
+        </BookmarkButton>
       </ImageContainer>
       <InfoContainer>
         <Typography type="h2">{title}</Typography>
-        <Rating></Rating>
-        <Genres></Genres>
-        <Description></Description>
+        <Rating>{rating}</Rating>
+        <Genres>{genres.join(', ')}</Genres>
+        <Description>{description}</Description>
       </InfoContainer>
     </CardContainer>
   );
 }
 
-const CardContainer = styled.article<Partial<Card>>`
+const CardContainer = styled.article<Partial<CardProps>>`
   display: grid;
   grid-template-columns: ${(props) =>
     props.display === 'regular' ? '1fr 1fr' : '1fr'};
+  gap: 10px;
+  max-width: 500px;
 `;
 
-const Image = styled.image``;
+const Image = styled.img``;
 
-const ImageContainer = styled.div``;
+const ImageContainer = styled.div`
+  position: relative;
+`;
 
 const InfoContainer = styled.div``;
 
@@ -50,4 +60,15 @@ const Description = styled.p``;
 const Rating = styled.div`
   background-color: red;
   height: 30px;
+`;
+
+const BookmarkButton = styled.button`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 3rem;
+  height: 3rem;
+  background-color: transparent;
+  color: inherit;
+  border: none;
 `;
