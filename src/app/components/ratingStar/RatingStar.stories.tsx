@@ -6,6 +6,6 @@ export default {
   component: RatingStar,
 };
 
-export const noStar = (): JSX.Element => <RatingStar fill="empty" />;
-export const halfStar = (): JSX.Element => <RatingStar fill="half" />;
-export const fullStar = (): JSX.Element => <RatingStar fill="full" />;
+export const EmptyStar = (): JSX.Element => <RatingStar fill="empty" />;
+export const HalfStar = (): JSX.Element => <RatingStar fill="half" />;
+export const FullStar = (): JSX.Element => <RatingStar fill="full" />;
