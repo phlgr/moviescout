@@ -3,13 +3,17 @@ import styled from 'styled-components';
 import ButtonBookmark from '../ButtonBookmark/ButtonBookmark';
 import Typography from '../Typography/Typography';
 
-type CardProps = {
+type Card = {
   title: string;
   display: 'regular' | 'compact' | 'compactWide';
 };
 
-export default function Card(props: CardProps): JSX.Element {
-  const { title, display } = props;
+type CardProps = {
+  content: Card;
+};
+
+export default function Card({ content }: CardProps): JSX.Element {
+  const { title, display } = content;
 
   return (
     <CardContainer display={display}>
@@ -27,7 +31,7 @@ export default function Card(props: CardProps): JSX.Element {
   );
 }
 
-const CardContainer = styled.div<Partial<CardProps>>`
+const CardContainer = styled.article<Partial<Card>>`
   display: grid;
   grid-template-columns: ${(props) =>
     props.display === 'regular' ? '1fr 1fr' : '1fr'};
@@ -45,4 +49,5 @@ const Description = styled.p``;
 
 const Rating = styled.div`
   background-color: red;
+  height: 30px;
 `;
