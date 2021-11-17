@@ -1,10 +1,10 @@
 import React from 'react';
 
 type fillProps = {
-  fill: string;
+  fill: 'empty' | 'half' | 'full';
 };
 
-export default function Ratingstar({ fill }: fillProps): JSX.Element {
+export default function RatingStar({ fill }: fillProps): JSX.Element {
   if (fill === 'empty') {
     return (
       <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
