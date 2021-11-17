@@ -5,32 +5,38 @@ import SearchIcon from '../Icons/SearchIcon';
 type SearchBarProps = {
   searchQuery: string;
   setSearchQuery: (searchQuery: string) => void;
-  handleSubmit: () => void;
+  onSubmit: () => void;
+  placeholderText: string;
+  screenreaderLabelText: string;
 };
 
 export default function SearchBar({
   searchQuery,
   setSearchQuery,
-  handleSubmit,
+  onSubmit,
+  placeholderText,
+  screenreaderLabelText,
 }: SearchBarProps): JSX.Element {
   return (
-    <Container onSubmit={handleSubmit}>
+    <FormContainer onSubmit={onSubmit}>
       <StyledButton type="submit">
         <SearchIcon height="40" width="40"></SearchIcon>
       </StyledButton>
-      <StyledLabel htmlFor="styledInput">Search your movie</StyledLabel>
+      <ScreenReaderOnlyLabel htmlFor="styledInput">
+        {screenreaderLabelText}
+      </ScreenReaderOnlyLabel>
       <StyledInput
         id="styledInput"
         type="search"
-        placeholder="Search"
+        placeholder={placeholderText}
         value={searchQuery}
         onChange={(event) => setSearchQuery(event.target.value)}
       />
-    </Container>
+    </FormContainer>
   );
 }
 
-const Container = styled.form`
+const FormContainer = styled.form`
   display: flex;
   align-items: center;
   gap: 0.7em;
@@ -38,6 +44,7 @@ const Container = styled.form`
   border-radius: 0.625em;
   padding: 1.5em 1.5em;
 `;
+
 const StyledInput = styled.input`
   width: 100%;
   background-color: #2b2b2b;
@@ -69,7 +76,7 @@ const StyledButton = styled.button`
   color: inherit;
 `;
 
-const StyledLabel = styled.label`
+const ScreenReaderOnlyLabel = styled.label`
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   height: 1px;

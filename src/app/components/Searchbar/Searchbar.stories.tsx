@@ -6,10 +6,17 @@ export default {
   component: SearchBar,
 };
 
+// function handleSubmit(event: React.FormEvent<HTMLInputElement>) {
+//   event.preventDefault();
+//   console.log('submitted');
+// }
+
 export const regular = (): JSX.Element => (
   <SearchBar
     searchQuery="Käsekuchen"
     setSearchQuery={() => console.log('something changed')}
-    handleSubmit={() => console.log('submitted')}
+    onSubmit={() => console.log('submitted')}
+    placeholderText="Search"
+    screenreaderLabelText="Search your movie"
   />
 );
