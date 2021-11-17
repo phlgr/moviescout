@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import SearchIcon from '../Icons/SearchIcon';
 
-export default function Searchbar(): JSX.Element {
-  const [searchQuery, setSearchQuery] = useState('');
+type SearchBarProps = {
+  searchQuery: string;
+  setSearchQuery: (searchQuery: string) => void;
+  handleSubmit: () => void;
+};
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-  }
-
+export default function SearchBar({
+  searchQuery,
+  setSearchQuery,
+  handleSubmit,
+}: SearchBarProps): JSX.Element {
   return (
     <Container onSubmit={handleSubmit}>
       <StyledButton type="submit">

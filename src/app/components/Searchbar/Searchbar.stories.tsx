@@ -1,9 +1,15 @@
 import React from 'react';
-import Searchbar from './Searchbar';
+import SearchBar from './Searchbar';
 
 export default {
-  title: 'Component/Searchbar',
-  component: Searchbar,
+  title: 'Component/SearchBar',
+  component: SearchBar,
 };
 
-export const regular = (): JSX.Element => <Searchbar />;
+export const regular = (): JSX.Element => (
+  <SearchBar
+    searchQuery="Käsekuchen"
+    setSearchQuery={() => console.log('something changed')}
+    handleSubmit={() => console.log('submitted')}
+  />
+);
