@@ -21,8 +21,8 @@ function Rating({ rating }: RatingProps): JSX.Element {
 
   return (
     <RatingElement>
-      {rating}
-      {RatingStars}
+      <RatingNumber>{rating}</RatingNumber>
+      <RatingStarElements>{RatingStars}</RatingStarElements>
     </RatingElement>
   );
 }
@@ -30,8 +30,21 @@ function Rating({ rating }: RatingProps): JSX.Element {
 export default Rating;
 
 const RatingElement = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   font-size: 2rem;
   align-items: center;
-  gap: 1rem;
+`;
+
+const RatingNumber = styled.span`
+  flex-grow: 2;
+  justify-self: center;
+`;
+
+const RatingStarElements = styled.span`
+  flex-grow: 5;
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+  grid-column: 2/5;
 `;
