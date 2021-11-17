@@ -18,7 +18,13 @@ export default function SearchBar({
   screenreaderLabelText,
 }: SearchBarProps): JSX.Element {
   return (
-    <FormContainer onSubmit={onSubmit}>
+    <FormContainer
+      onSubmit={(event) => {
+        event.preventDefault();
+        onSubmit();
+        console.log(event);
+      }}
+    >
       <StyledButton type="submit">
         <SearchIcon height="40" width="40"></SearchIcon>
       </StyledButton>
