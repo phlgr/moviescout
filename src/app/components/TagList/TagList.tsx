@@ -1,9 +1,10 @@
+import type { ReactNode } from 'react';
 import React from 'react';
 import Tag from '../Tag/Tag';
 
 type TagProps = {
   id: number;
-  genreName: string;
+  children: ReactNode;
   active?: boolean;
   count?: string;
   onClick: () => void;
@@ -24,7 +25,7 @@ export default function TagList({ tagList }: TagListProps): JSX.Element {
           onClick={tag.onClick}
           count={tag.count}
         >
-          {tag.genreName}
+          {tag.children}
         </Tag>
       ))}
     </div>
