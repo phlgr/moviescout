@@ -1,23 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import ActionIcon from '../Icons/ActionIcon';
 
 type ActionlinProps = {
   url: string;
   text: string;
+  hidden: boolean;
 };
 
-function ActionLink({ url, text }: ActionlinProps): JSX.Element {
-  const [hidden, setHidden] = useState(false);
-
+function ActionLink({ url, text, hidden }: ActionlinProps): JSX.Element {
   return (
-    <Actionlink
-      href={url}
-      target="_blank"
-      onMouseEnter={() => setHidden(false)}
-      onMouseLeave={() => setHidden(true)}
-    >
-      {text}
+    <Actionlink href={url} target="_blank">
+      <LinkText>{text}</LinkText>
       {!hidden && (
         <Icon>
           <ActionIcon />
@@ -32,16 +26,25 @@ export default ActionLink;
 const Actionlink = styled.a`
   background-color: #ffc700;
   color: #111111;
-  border-radius: 5px;
-  padding: 13px 105px;
+  text-transform: uppercase;
   text-decoration: none;
-  margin: 20px;
-  display: flex;
-  justify-content: center;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-left: 20px;
+  margin-right: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  justify-items: center;
+  min-height: 30px;
+`;
+
+const LinkText = styled.span`
+  grid-column: 2/5;
+  align-self: center;
 `;
 
 const Icon = styled.span`
-  position: absolute;
+  grid-column: 5/6;
   align-self: center;
-  right: 50px;
 `;

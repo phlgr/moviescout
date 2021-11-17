@@ -1,6 +1,6 @@
 import React from 'react';
 // import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import ActionLink from './components/Actionlink/Actionlink';
+import ActionLink from './components/Actionlink/ActionLink';
 
 function App(): JSX.Element {
   return (
@@ -8,7 +8,7 @@ function App(): JSX.Element {
     //   <Routes>
     //     <Route path="/about"></Route>
     //     <Route path="/" element
-          <ActionLink url={''} text={'SEE ON IMDB'}></ActionLink>
+    <ActionLink url={''} text={'SEE ON IMDB'}></ActionLink>
     //     </Route>
     //   </Routes>
     // </BrowserRouter>
