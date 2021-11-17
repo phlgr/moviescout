@@ -19,7 +19,7 @@ const EXAMPLE = {
 export const Regular = (): JSX.Element => (
   <Card content={EXAMPLE} display="regular" />
 );
-export const Compact = (): JSX.Element => (
+export const Compact_TwoCards = (): JSX.Element => (
   <CompactContainer>
     <Card content={EXAMPLE} display="compact" />
     <Card content={EXAMPLE} display="compact" />

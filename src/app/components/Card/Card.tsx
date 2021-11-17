@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import ButtonBookmark from '../ButtonBookmark/ButtonBookmark';
 import Typography from '../Typography/Typography';
-import { CompactWide } from './Card.stories';
 
 type Card = {
   title: string;
