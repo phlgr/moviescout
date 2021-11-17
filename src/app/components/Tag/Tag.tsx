@@ -24,7 +24,7 @@ export default function Tag({
 }
 const TagStyleActive = styled.span<Partial<TagProps>>`
   background-color: ${(props) => (props.active ? '#FFC700' : '#2A2A2A')};
-  color: white;
+  color: ${(props) => (props.active ? 'black' : 'white')};
   border-radius: 3.5em;
   padding: 7px 15px;
   text-transform: uppercase;
