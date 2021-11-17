@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import ButtonBookmark from '../ButtonBookmark/ButtonBookmark';
 import Typography from '../Typography/Typography';
+import { CompactWide } from './Card.stories';
 
 type Card = {
   title: string;
@@ -21,7 +22,7 @@ export default function Card({ content, display }: CardProps): JSX.Element {
 
   return (
     <CardContainer display={display}>
-      <ImageContainer>
+      <ImageContainer display={display}>
         <Image src={imageUrl} />
         <BookmarkButton>
           <ButtonBookmark />
@@ -39,10 +40,11 @@ export default function Card({ content, display }: CardProps): JSX.Element {
 
 const CardContainer = styled.article<Partial<CardProps>>`
   display: grid;
-  grid-template-columns: ${(props) =>
-    props.display === 'regular' ? '1fr 1fr' : '1fr'};
+  grid-template-columns: ${({ display }) =>
+    display === 'regular' ? '1fr 1fr' : '1fr'};
   gap: 10px;
-  max-width: 467px;
+  max-width: ${({ display }) =>
+    display === 'compactWide' ? '300px' : '100%'}; ;
 `;
 
 const Image = styled.img`
@@ -51,9 +53,10 @@ const Image = styled.img`
   object-fit: cover;
 `;
 
-const ImageContainer = styled.div`
+const ImageContainer = styled.div<Partial<CardProps>>`
   position: relative;
   width: 100%;
+  height: ${({ display }) => (display !== 'compactWide' ? '273px' : '200px')};
   border-radius: 15px;
   overflow: hidden;
 `;
