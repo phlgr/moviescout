@@ -1,15 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import SearchIcon from '../Icons/SearchIcon';
 
 export default function Searchbar(): JSX.Element {
+  const [searchQuery, setSearchQuery] = useState('');
+
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+  }
+
   return (
-    <Container>
+    <Container onSubmit={handleSubmit}>
       <StyledButton type="submit">
         <SearchIcon height="40" width="40"></SearchIcon>
       </StyledButton>
       <StyledLabel htmlFor="styledInput">Search your movie</StyledLabel>
-      <StyledInput id="styledInput" type="search" placeholder="Search" />
+      <StyledInput
+        id="styledInput"
+        type="search"
+        placeholder="Search"
+        value={searchQuery}
+        onChange={(event) => setSearchQuery(event.target.value)}
+      />
     </Container>
   );
 }
