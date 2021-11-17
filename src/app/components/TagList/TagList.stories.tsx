@@ -9,21 +9,30 @@ export default {
 const genreList = [
   {
     id: 1,
-    genreName: 'Action',
+    children: 'Action',
     count: '3',
     active: true,
+    onClick: () => {
+      console.log('ACTION');
+    },
   },
   {
     id: 2,
-    genreName: 'Horror',
+    children: 'Horror',
     count: '6',
     active: false,
+    onClick: () => {
+      console.log('Horror');
+    },
   },
   {
     id: 3,
-    genreName: 'Thriller',
+    children: 'Thriller',
     count: '0',
     active: true,
+    onClick: () => {
+      console.log('Thriller');
+    },
   },
 ];
 
