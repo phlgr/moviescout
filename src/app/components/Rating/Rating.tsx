@@ -7,7 +7,7 @@ type RatingProps = {
 };
 
 function Rating({ rating }: RatingProps): JSX.Element {
-  let RatingStars = [];
+  const RatingStars = [];
 
   for (let i = 0; i < 5; i++) {
     if (rating - i >= 1) {
