@@ -42,13 +42,20 @@ const CardContainer = styled.article<Partial<CardProps>>`
   grid-template-columns: ${(props) =>
     props.display === 'regular' ? '1fr 1fr' : '1fr'};
   gap: 10px;
-  max-width: 500px;
+  max-width: 467px;
 `;
 
-const Image = styled.img``;
+const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
 
 const ImageContainer = styled.div`
   position: relative;
+  width: 100%;
+  border-radius: 15px;
+  overflow: hidden;
 `;
 
 const InfoContainer = styled.div``;
@@ -58,7 +65,7 @@ const Genres = styled.p``;
 const Description = styled.p``;
 
 const Rating = styled.div`
-  background-color: red;
+  background-color: magenta;
   height: 30px;
 `;
 
