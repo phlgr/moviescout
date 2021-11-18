@@ -109,12 +109,11 @@ const BookmarkButton = styled.button`
 
 const ComapctRating = styled.p`
   display: flex;
-  flex-grow: 1;
   font-size: 1.125rem;
 `;
 
 const RatingStarContainer = styled.div`
-  width: 1.1rem;
+  width: 1.125rem;
   display: inline-block;
   margin-left: 5px;
   margin-top: 1px;
