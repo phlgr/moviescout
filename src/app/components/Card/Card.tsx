@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import ButtonBookmark from '../ButtonBookmark/ButtonBookmark';
+import RatingStar from '../ratingStar/RatingStar';
 import Typography from '../Typography/Typography';
 
 type Card = {
@@ -27,11 +28,25 @@ export default function Card({ content, display }: CardProps): JSX.Element {
           <ButtonBookmark />
         </BookmarkButton>
       </ImageContainer>
+
       <InfoContainer>
         <Typography type="h2">{title}</Typography>
-        <Rating>{rating}</Rating>
-        <Genres>{genres.join(', ')}</Genres>
-        <Description>{description}</Description>
+        {display !== 'compact' ? (
+          <Rating>{rating}</Rating>
+        ) : (
+          <ComapctRating>
+            <span> {rating} </span>
+            <RatingStarContainer>
+              <RatingStar fill="full" />
+            </RatingStarContainer>
+          </ComapctRating>
+        )}
+        {display === 'regular' && (
+          <>
+            <Genres>{genres.join(', ')}</Genres>
+            <Description>{description}</Description>
+          </>
+        )}
       </InfoContainer>
     </CardContainer>
   );
@@ -42,8 +57,7 @@ const CardContainer = styled.article<Partial<CardProps>>`
   grid-template-columns: ${({ display }) =>
     display === 'regular' ? '1fr 1fr' : '1fr'};
   gap: 10px;
-  max-width: ${({ display }) =>
-    display === 'compactWide' ? '300px' : '100%'}; ;
+  max-width: ${({ display }) => (display === 'compactWide' ? '300px' : '100%')};
 `;
 
 const Image = styled.img`
@@ -60,24 +74,46 @@ const ImageContainer = styled.div<Partial<CardProps>>`
   overflow: hidden;
 `;
 
-const InfoContainer = styled.div``;
+const InfoContainer = styled.div`
+  display: grid;
+`;
 
-const Genres = styled.p``;
+const Genres = styled.p`
+  font-size: 0.875rem;
+`;
 
-const Description = styled.p``;
+const Description = styled.p`
+  color: #888888;
+  font-size: 0.8125rem;
+  margin: 0;
+`;
 
 const Rating = styled.div`
   background-color: magenta;
   height: 30px;
+  margin: 0;
 `;
 
 const BookmarkButton = styled.button`
   position: absolute;
   top: 10px;
   right: 10px;
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
   background-color: transparent;
   color: inherit;
   border: none;
+`;
+
+const ComapctRating = styled.p`
+  display: flex;
+  flex-grow: 1;
+  font-size: 1.125rem;
+`;
+
+const RatingStarContainer = styled.div`
+  width: 1.1rem;
+  display: inline-block;
+  margin-left: 5px;
+  margin-top: 1px;
 `;
