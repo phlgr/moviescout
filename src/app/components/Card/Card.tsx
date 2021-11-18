@@ -88,6 +88,12 @@ const Description = styled.p`
   color: #888888;
   font-size: 0.8125rem;
   margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5; /* number of lines to show */
+  line-clamp: 5;
+  -webkit-box-orient: vertical;
 `;
 
 const Rating = styled.div`

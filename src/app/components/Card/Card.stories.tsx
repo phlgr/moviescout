@@ -10,7 +10,7 @@ export default {
 const EXAMPLE = {
   title: 'Hitman’s Wife’s Bodyguard',
   description:
-    'The world’s most lethal odd couple - bodyguard Michael Bryce and hitman Darius Kincaid - are back on anoth......',
+    'The world’s most lethal odd couple - bodyguard Michael Bryce and hitman Darius Kincaid - are back on another edgy adventure for saving the rainforest from hipster Nazis.',
   rating: 3.5,
   genres: ['Action', 'Comedy', 'Crime'],
   imageUrl: 'https://source.unsplash.com/random/500x500?hitman',
