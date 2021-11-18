@@ -76,6 +76,8 @@ const ImageContainer = styled.div<Partial<CardProps>>`
 
 const InfoContainer = styled.div`
   display: grid;
+  gap: 7px;
+  align-content: start;
 `;
 
 const Genres = styled.p`
